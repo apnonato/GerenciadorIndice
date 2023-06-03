@@ -22,7 +22,6 @@ import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import static pack.GerenciadorArquivo.buscarPalavra;
-import java.io.PrintWriter;
 
 
 public class GerenciadorArquivo {
@@ -48,7 +47,7 @@ public class GerenciadorArquivo {
         
         GerenciadorArquivo gerenciando = new GerenciadorArquivo();
         String diretorioRaiz = System.getProperty("user.dir");
-        String arquivoConsulta = diretorioRaiz + "/src/pack/" + "consulta.txt";
+        String arquivoConsulta = diretorioRaiz + "/src/pack/" + "conjunto.txt";
         
         List<String> nomesArquivos = gerenciando.lerArquivoConsulta(arquivoConsulta);
         
@@ -87,12 +86,12 @@ public class GerenciadorArquivo {
         List<Palavra> dicionario=  buscarPalavra(a, b, c, Dicionario);
         listarResultados(dicionario);
    
-        GerarArquivoIndex( "index.txt", dicionario);
+        GerarArquivoIndice( "indice.txt", dicionario);
         //pegar o nome a ser buscado
        
         //buscar palavra no arquivo indice.txt e retornar o numero dos arquivos onde está
         String palavraBusca = "amor";
-        String indiceArquivo = "C:\\Users\\Andressa Peixoto\\Documents\\NetBeansProjects\\GerenciadorIndiceInvertido-ORI-main\\GerenciadorIndice";
+        String indiceArquivo = "C:\\Users\\Andressa Peixoto\\Desktop\\GerenciadorIndiceInvertido-ORI-main\\GerenciadorIndice\\src\\pack\\indice.txt";
 
         List<Integer> numerosArquivos = obterNumerosArquivos(palavraBusca, indiceArquivo);
         gerenciando.imprimirConsulta(numerosArquivos);
@@ -138,7 +137,7 @@ public class GerenciadorArquivo {
         return numerosArquivos;
     }
 
-    public static void GerarArquivoIndex(String nomeArquivo, List<Palavra> resultados) {
+    public static void GerarArquivoIndice(String nomeArquivo, List<Palavra> resultados) {
         String diretorioRaiz = System.getProperty("user.dir");
         String caminhoCompleto = diretorioRaiz + "/src/pack/" + nomeArquivo;
         
@@ -281,30 +280,6 @@ public class GerenciadorArquivo {
 
         return palavrasFiltradas;
     }
-public class ExemploFileWriter {
-    public  void main() {
-        try {
-            FileWriter writer = new FileWriter("resposta1.txt");
-            writer.write("Esta é a saída do programa.");
-            writer.close();
-        } catch (IOException e) {
-            System.out.println("Ocorreu um erro ao gravar o arquivo.");
-        }
-    }
-}
-public class ExemploPrintWriter {
-    public  void main() {
-        try {
-            PrintWriter writer;
-            writer = new PrintWriter(new File("resposta2.txt"));
-            writer.println("Esta é a saída do programa.");
-            writer.close();
-        } catch (IOException e) {
-            System.out.println("Ocorreu um erro ao gravar o arquivo.");
-            e.printStackTrace();
-        }
-    }
-}
+    
 }
 
- 
